@@ -14,14 +14,22 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Accueil<span class="sr-only">(current)</span></a>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" 
+                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Temps Supplémentaire</a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="nutrition.php">Nutrition</a>
+                        <a class="dropdown-item" href="distribution.php">Distribution</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="gestionNutrition.php">Gestion Nutrition</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="nutrition.php">Gestion Nutrition</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="distribution.php">Gestion Distribution</a>
+                    <a class="nav-link" href="gestionDistribution.php">Gestion Distribution</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="technicienne.php">Gestion Techniciennes</a>
@@ -32,4 +40,4 @@
                 </ul>
             </div>
         </nav>
-        <div class="container">
+        <div class="container-fluid">

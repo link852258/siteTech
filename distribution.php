@@ -1,28 +1,32 @@
+<?php require_once("./Controllers/CIndex.php"); ?>
+<?php require_once('./Models/BD.php');?>
+<?php require_once('./Models/GestionTSPriorite.php');?>
+
 <?php
-    require_once("./Controllers/CDepartement.php");
+
     if(isset($_POST['methode'])){
         if($_POST['methode'] === "Ajout"){
-            AjouterTechDep($_POST['hdnID'], $_POST['IDTech'], $_POST['IDPriorite'], $_POST['ordre']);
-            actualiserTableau(2, "Distribution");
+            cAjouter();
+            cAfficherIndex();
         }
         elseif ($_POST['methode'] === "Modifier"){
-            $TechDepPri = modifierTechDep($_POST['ID']);
-            
-            echo json_encode($TechDepPri);
+            $tech = modifierTech($_POST['ID']);
+            echo json_encode($tech);
         }
         elseif ($_POST['methode'] === "Valider"){
-            validerTechDep($_POST['ID'], $_POST['hdnID'], $_POST['IDTech'], $_POST['IDPriorite'], $_POST['ordre']);
-            actualiserTableau(2, "Distribution");
+            validerTech($_POST['ID'], $_POST['matricule'], $_POST['prenom'], $_POST['nom'], $_POST['anciennete'], $_POST['telephone']);
+            actualiserTableau();
         }
         elseif ($_POST['methode'] === "Supprimer"){
-            supprimerTechDep($_POST['ID']);
-            actualiserTableau(2, "Distribution");
+            supprimerTech($_POST['matricule']);
+            actualiserTableau();
         }
         else{
-            afficher(2, "Distribution");
+            afficher();
         }
     }
     else{
-        afficher(2, "Distribution");
+        afficher();
     }
+
 ?>
