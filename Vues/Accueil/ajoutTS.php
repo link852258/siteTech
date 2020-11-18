@@ -19,7 +19,7 @@
                 <label for="dteDate"><?php echo "Priorité ".$i?></label>
             </div>
             <div class="form-group row">
-              <?php $resTechTS = obtenirTechTS($i,1); ?>
+              <?php $resTechTS = obtenirTechTS($i,$IDDep); ?>
                 <?php require('selectTechTS.php'); ?>
             </div>
             <?php } ?>

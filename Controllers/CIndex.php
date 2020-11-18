@@ -1,6 +1,6 @@
 <?php require_once("./Models/BD.php"); ?>
 <?php
-    function afficher(){
+    function afficher($IDDep, $nomDep){
         require_once('./Vues/Partiels/tete.php');
         require_once('./Vues/Accueil/afficherIndex.php');
         require_once('./Vues/Accueil/ajoutTS.php');
@@ -24,7 +24,7 @@
         modifierTechOrdre($liste);
     }
 
-    function cAfficherIndex(){
+    function cAfficherIndex($IDDep, $nomDep){
         require_once('./Vues/Accueil/afficherTables.php');
     }
 

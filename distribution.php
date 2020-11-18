@@ -7,7 +7,7 @@
     if(isset($_POST['methode'])){
         if($_POST['methode'] === "Ajout"){
             cAjouter();
-            cAfficherIndex();
+            cAfficherIndex(2, "Distribution");
         }
         elseif ($_POST['methode'] === "Modifier"){
             $tech = modifierTech($_POST['ID']);
@@ -22,11 +22,11 @@
             actualiserTableau();
         }
         else{
-            afficher();
+            afficher(2, "Distribution");
         }
     }
     else{
-        afficher();
+        afficher(2, "Distribution");
     }
 
 ?>
