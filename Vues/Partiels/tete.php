@@ -38,6 +38,10 @@
                     <a class="nav-link" href="#">Recherche</a>
                 </li>
                 </ul>
+                <span class="navbar-text text-white">
+                    <?php echo 'Bonjour '.$_SESSION['prenom'];?>
+                </span>
+                <button class="btn btn-danger">Déconnexion</button>
             </div>
         </nav>
         <div class="container-fluid">

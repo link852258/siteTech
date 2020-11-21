@@ -1,5 +1,6 @@
 <?php
     require_once("./Controllers/CTechnicienne.php");
+    session_start();
     if(isset($_POST['methode'])){
         if($_POST['methode'] === "Ajout"){
             AjouterTech($_POST['matricule'], $_POST['prenom'], $_POST['nom'], $_POST['anciennete'], $_POST['telephone']);

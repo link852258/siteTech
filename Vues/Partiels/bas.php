@@ -9,5 +9,6 @@
         <script type="text/javascript" src="./Vues/Technicienne/Technicienne.js"></script>
         <script type="text/javascript" src="./Vues/Departement/Departement.js"></script>
         <script type="text/javascript" src="./Vues/Accueil/TS.js"></script>
+        <script type="text/javascript" src="./Vues/Connexion/index.js"></script>
     </body>
 </html>

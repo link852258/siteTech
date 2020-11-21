@@ -1,9 +1,9 @@
-<?php require_once("./Controllers/CIndex.php"); ?>
+<?php require_once("./Controllers/CIndexNutDis.php"); ?>
 <?php require_once('./Models/BD.php');?>
 <?php require_once('./Models/GestionTSPriorite.php');?>
 
 <?php
-
+    session_start();
     if(isset($_POST['methode'])){
         if($_POST['methode'] === "Ajout"){
             cAjouter();

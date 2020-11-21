@@ -1,5 +1,9 @@
 <?php
     require_once("./Controllers/CDepartement.php");
+    session_start();
+    if(!isset($_SESSION['ID'])){
+        header('Location:/');
+    }
     if(isset($_POST['methode'])){
         if($_POST['methode'] === "Ajout"){
             AjouterTechDep($_POST['hdnID'], $_POST['IDTech'], $_POST['IDPriorite'], $_POST['ordre']);

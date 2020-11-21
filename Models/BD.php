@@ -8,6 +8,17 @@
         return $conn;
     }
     
+    function connexionTechnicienne($nomUtilisateur, $MDP){
+        $conn = ouvrirConnection();
+        $sql= "Call CONNEXIONTECHNICIENNE(?,?);";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("is",$nomUtilisateur,$MDP);
+        $stmt->execute();
+        $resultat = $stmt->get_result();
+        $conn->close();
+        return $resultat;
+        
+    }
     
     function insererTechnicienne($tech){
         $conn = ouvrirConnection();
