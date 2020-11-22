@@ -4,7 +4,10 @@
 
 <?php
     session_start();
-    if(isset($_POST['methode'])){
+    if(!isset($_SESSION['ID'])){
+        header('Location:/');
+    }
+    else if(isset($_POST['methode'])){
         if($_POST['methode'] === "Ajout"){
             cAjouter();
             cAfficherIndex(2, "Distribution");
@@ -20,6 +23,9 @@
         elseif ($_POST['methode'] === "Supprimer"){
             supprimerTech($_POST['matricule']);
             actualiserTableau();
+        }
+        elseif ($_POST['methode'] === "Deco"){
+            session_destroy();
         }
         else{
             afficher(2, "Distribution");

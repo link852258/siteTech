@@ -8,6 +8,7 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">Gestion TS</a>
+            <?php if(isset($_SESSION['ID'])) {?>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -38,10 +39,11 @@
                     <a class="nav-link" href="#">Recherche</a>
                 </li>
                 </ul>
-                <span class="navbar-text text-white">
+                <span class="navbar-text text-white mr-3">
                     <?php echo 'Bonjour '.$_SESSION['prenom'];?>
                 </span>
-                <button class="btn btn-danger">Déconnexion</button>
+                <button class="btn btn-danger" id="btnDeco" name="btnDeco">Déconnexion</button>
+                <?php }?>
             </div>
         </nav>
         <div class="container-fluid">

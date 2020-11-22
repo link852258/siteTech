@@ -10,5 +10,6 @@
         <script type="text/javascript" src="./Vues/Departement/Departement.js"></script>
         <script type="text/javascript" src="./Vues/Accueil/TS.js"></script>
         <script type="text/javascript" src="./Vues/Connexion/index.js"></script>
+        <script type="text/javascript" src="./Vues/Partiels/tete.js"></script>
     </body>
 </html>
