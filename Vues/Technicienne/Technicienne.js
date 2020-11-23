@@ -8,6 +8,7 @@ $(document).ready(()=>{
         var matricule = $("#nbrMatricule").val();
         var prenom = $("#txtPrenom").val();
         var nom = $("#txtNom").val();
+        var dateEmbauche = $("#dteEmbauche").val();
         var anciennete = $("#nbrAnciennete").val();
         var telephone = $("#txtTel").val();
         $.ajax({
@@ -18,6 +19,7 @@ $(document).ready(()=>{
                 matricule: matricule,
                 prenom: prenom,
                 nom: nom,
+                dateEmbauche: dateEmbauche,
                 anciennete: anciennete,
                 telephone: telephone
             },
@@ -26,6 +28,7 @@ $(document).ready(()=>{
                 $("#nbrMatricule").val("");
                 $("#txtPrenom").val("");
                 $("#txtNom").val("");
+                $("#dteEmbauche").val("");
                 $("#nbrAnciennete").val("");
                 $("#txtTel").val("");
                 $("#tableTech").html(data);
@@ -70,6 +73,7 @@ $(document).ready(()=>{
                 $("#nbrMatricule").val(data['matricule']);
                 $("#txtPrenom").val(data['prenom']);
                 $("#txtNom").val(data['nom']);
+                $("#dteEmbauche").val(data['DATEEMBAUCHE']);
                 $("#nbrAnciennete").val(data['anciennete']);
                 $("#txtTel").val(data['tel']);
             },
@@ -87,6 +91,7 @@ $(document).ready(()=>{
         var matricule = $("#nbrMatricule").val();
         var prenom = $("#txtPrenom").val();
         var nom = $("#txtNom").val();
+        var dateEmbauche = $("#dteEmbauche").val();
         var anciennete = $("#nbrAnciennete").val();
         var telephone = $("#txtTel").val();
         $.ajax({
@@ -98,6 +103,7 @@ $(document).ready(()=>{
                 matricule: matricule,
                 prenom: prenom,
                 nom: nom,
+                dateEmbauche: dateEmbauche,
                 anciennete: anciennete,
                 telephone: telephone
             },
@@ -107,6 +113,7 @@ $(document).ready(()=>{
                 $("#nbrMatricule").val("");
                 $("#txtPrenom").val("");
                 $("#txtNom").val("");
+                $("#dteEmbauche").val(data['DATEEMBAUCHE']);
                 $("#nbrAnciennete").val("");
                 $("#txtTel").val("");
                 $('#mdlAjoutTech').modal('hide');
@@ -122,6 +129,7 @@ $(document).ready(()=>{
         $("#nbrMatricule").val("");
         $("#txtPrenom").val("");
         $("#txtNom").val("");
+        $("#dteEmbauche").val("");
         $("#nbrAnciennete").val("");
         $("#txtTel").val("");
         $('#btnSoumettre').show();

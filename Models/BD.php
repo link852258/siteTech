@@ -22,9 +22,9 @@
     
     function insererTechnicienne($tech){
         $conn = ouvrirConnection();
-        $sql= "CALL INSERERTECH(?,?,?,?,?);";
+        $sql= "CALL INSERERTECH(?,?,?,?,?,?);";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sssis",$tech->obtenirMatricule(),$tech->obtenirNom(),$tech->obtenirPrenom(),$tech->obtenirAnc(),$tech->obtenirTel());
+        $stmt->bind_param("ssssis",$tech->obtenirMatricule(),$tech->obtenirNom(),$tech->obtenirPrenom(), $tech->obtenirDateEmbauche(), $tech->obtenirAnc(), $tech->obtenirTel());
         $stmt->execute();
         $conn->close();
     }
@@ -32,7 +32,7 @@
     function modifierTechnicienne($tech){
         $conn = ouvrirConnection();
         $sql = "UPDATE techniciennes 
-        SET MATRICULE='".$tech->obtenirMatricule()."', nom='".$tech->obtenirNom()."', prenom='".$tech->obtenirPrenom()."', anciennete='".$tech->obtenirAnc()."', telephone='".$tech->obtenirTel()."' WHERE ID=".$tech->obtenirID().";";
+        SET MATRICULE='".$tech->obtenirMatricule()."', nom='".$tech->obtenirNom()."', prenom='".$tech->obtenirPrenom()."', DATEEMBAUCHE='".$tech->obtenirDateEmbauche()."', anciennete='".$tech->obtenirAnc()."', telephone='".$tech->obtenirTel()."' WHERE ID=".$tech->obtenirID().";";
         if(!$conn->query($sql)){
             echo $conn->error;
         }
@@ -46,7 +46,7 @@
         $conn->close();
         $techs = array();
         while($range = $resultat->fetch_assoc()){
-            $tech = new Technicienne($range['MATRICULE'], $range['prenom'], $range['nom'], $range['anciennete']);
+            $tech = new Technicienne($range['MATRICULE'], $range['prenom'], $range['nom'], $range['DATEEMBAUCHE'], $range['anciennete']);
             $tech->setID($range['ID']);
             array_push($techs, $tech);
         }
@@ -59,7 +59,7 @@
         $resultat = $conn->query($sql);
         $conn->close();
         $range = $resultat->fetch_assoc();
-        $tech = new Technicienne($range['MATRICULE'], $range['prenom'], $range['nom'], $range['anciennete']);
+        $tech = new Technicienne($range['MATRICULE'], $range['prenom'], $range['nom'], $range['DATEEMBAUCHE'], $range['anciennete']);
         $tech->setID($range['ID']);
         $tech->setTel($range['telephone']);
         return $tech;

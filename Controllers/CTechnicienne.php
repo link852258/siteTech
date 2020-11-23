@@ -8,8 +8,8 @@
         require_once('./Vues/Partiels/bas.php');
     }
 
-    function AjouterTech($matricule, $prenom, $nom, $anciennete, $telephone){
-        $tech = new Technicienne($matricule, $prenom, $nom, $anciennete);
+    function AjouterTech($matricule, $prenom, $nom, $dateEmbauche, $anciennete, $telephone){
+        $tech = new Technicienne($matricule, $prenom, $nom, $dateEmbauche, $anciennete);
         $tech->setTel($telephone);
         insererTechnicienne($tech);
     }
@@ -19,8 +19,8 @@
         return $tech;
     }
 
-    function validerTech($ID, $matricule, $prenom, $nom, $anciennete, $telephone){
-        $tech = new Technicienne($matricule, $prenom, $nom, $anciennete);
+    function validerTech($ID, $matricule, $prenom, $nom, $dateEmbauche, $anciennete, $telephone){
+        $tech = new Technicienne($matricule, $prenom, $nom, $dateEmbauche, $anciennete);
         $tech->setID($ID);
         $tech->setTel($telephone);
         modifierTechnicienne($tech);

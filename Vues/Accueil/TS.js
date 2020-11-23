@@ -52,11 +52,10 @@ $(document).ready(()=>{
                 date: date
 
             },
-            success: function(data){
+            success: function(){
                 $(".slcPriorite").val(1);
-                $("#main").html(data);
                 $('#mdlAjoutTS').modal('hide');
-
+                window.location.reload();
             },
             error: function(){
                 alert("error")

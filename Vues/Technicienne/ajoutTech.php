@@ -23,6 +23,10 @@
                 <input type="text" id="txtNom" class="form-control" name="txtNom">
             </div>
             <div class="form-group">
+                <label for="dteEmbauche">Date d'embauche</label>
+                <input type="date" id="dteEmbauche" class="form-control" name="dteEmbauche">
+            </div>
+            <div class="form-group">
                 <label for="txtNom">Anciennete</label>
                 <input type="number" id="nbrAnciennete" class="form-control" name="nbrAnciennete">
             </div>

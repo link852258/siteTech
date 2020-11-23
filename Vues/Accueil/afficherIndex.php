@@ -1,6 +1,5 @@
 <div class="row">
     <div class="col" id="main">
-        <h1><?php echo $nomDep; ?></h1>
         <?php require_once('afficherTables.php'); ?>
     </div>
 </div>

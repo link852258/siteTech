@@ -6,7 +6,7 @@
     }
     else if(isset($_POST['methode'])){
         if($_POST['methode'] === "Ajout"){
-            AjouterTech($_POST['matricule'], $_POST['prenom'], $_POST['nom'], $_POST['anciennete'], $_POST['telephone']);
+            AjouterTech($_POST['matricule'], $_POST['prenom'], $_POST['nom'], $_POST['dteEmbauche'], $_POST['anciennete'], $_POST['telephone']);
             actualiserTableau();
         }
         elseif ($_POST['methode'] === "Modifier"){
@@ -14,7 +14,7 @@
             echo json_encode($tech);
         }
         elseif ($_POST['methode'] === "Valider"){
-            validerTech($_POST['ID'], $_POST['matricule'], $_POST['prenom'], $_POST['nom'], $_POST['anciennete'], $_POST['telephone']);
+            validerTech($_POST['ID'], $_POST['matricule'], $_POST['prenom'], $_POST['nom'], $_POST['dteEmbauche'], $_POST['anciennete'], $_POST['telephone']);
             actualiserTableau();
         }
         elseif ($_POST['methode'] === "Supprimer"){

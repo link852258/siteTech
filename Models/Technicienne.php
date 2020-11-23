@@ -5,18 +5,28 @@ class Technicienne {
     public $matricule;
     public $prenom;
     public $nom;
+    public $dateEmebauche;
     public $anciennete;
     public $tel;
 
-    function __construct($matricule, $prenom, $nom, $anciennete){
+    function __construct($matricule, $prenom, $nom, $dateEmebauche, $anciennete){
         $this->matricule = $matricule;
         $this->prenom = $prenom;
         $this->nom = $nom;
+        $this->dateEmebauche = $dateEmebauche;
         $this->anciennete = $anciennete;
     }
 
     function obtenirAnc(){
         return $this->anciennete;
+    }
+
+    function setDateEmbauche($dateEmebauche){
+        $this->dateEmebauche = $dateEmebauche;
+    }
+
+    function obtenirDateEmbauche(){
+        return $this->dateEmebauche;
     }
 
     function setTel($tel){

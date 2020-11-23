@@ -1,3 +1,4 @@
+<h1><?php echo $nomDep; ?></h1>
 <?php for($i = 1; $i <= 3; $i++){?>
 <div class="row">
     <div class="col" id="<?php echo 'mainCol'.$i; ?>">
