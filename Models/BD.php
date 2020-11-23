@@ -34,7 +34,7 @@
         $sql = "UPDATE techniciennes 
         SET MATRICULE='".$tech->obtenirMatricule()."', nom='".$tech->obtenirNom()."', prenom='".$tech->obtenirPrenom()."', DATEEMBAUCHE='".$tech->obtenirDateEmbauche()."', anciennete='".$tech->obtenirAnc()."', telephone='".$tech->obtenirTel()."' WHERE ID=".$tech->obtenirID().";";
         if(!$conn->query($sql)){
-            echo $conn->error;
+            echo "UPDATE ".$conn->error;
         }
         $conn->close();
     }

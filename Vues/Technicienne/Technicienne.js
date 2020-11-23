@@ -113,7 +113,7 @@ $(document).ready(()=>{
                 $("#nbrMatricule").val("");
                 $("#txtPrenom").val("");
                 $("#txtNom").val("");
-                $("#dteEmbauche").val(data['DATEEMBAUCHE']);
+                $("#dteEmbauche").val("");
                 $("#nbrAnciennete").val("");
                 $("#txtTel").val("");
                 $('#mdlAjoutTech').modal('hide');
