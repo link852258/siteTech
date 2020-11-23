@@ -73,7 +73,7 @@ $(document).ready(()=>{
                 $("#nbrMatricule").val(data['matricule']);
                 $("#txtPrenom").val(data['prenom']);
                 $("#txtNom").val(data['nom']);
-                $("#dteEmbauche").val(data['DATEEMBAUCHE']);
+                $("#dteEmbauche").val(data['dateEmbauche']);
                 $("#nbrAnciennete").val(data['anciennete']);
                 $("#txtTel").val(data['tel']);
             },
