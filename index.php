@@ -8,7 +8,7 @@
         $resulat = connexion($_POST['nomUtilisateur'], $_POST['MDP']);
         if(!is_null($resulat)){
             $_SESSION['ID'] = $resulat['ID'];
-            $_SESSION['prenom'] = $resulat['prenom'];
+            $_SESSION['prenom'] = $resulat['PRENOM'];
         }
     }
     else{

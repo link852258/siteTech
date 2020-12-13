@@ -23,16 +23,8 @@ $(document).ready(()=>{
                 anciennete: anciennete,
                 telephone: telephone
             },
-            success: function(data){
-                $("#hdnID").val("");
-                $("#nbrMatricule").val("");
-                $("#txtPrenom").val("");
-                $("#txtNom").val("");
-                $("#dteEmbauche").val("");
-                $("#nbrAnciennete").val("");
-                $("#txtTel").val("");
-                $("#tableTech").html(data);
-                $('#mdlAjoutTech').modal('hide');
+            success: function(){
+                window.location.reload();
             },
             error: function(){
                 alert("error")
@@ -49,8 +41,8 @@ $(document).ready(()=>{
                 methode: "Supprimer", 
                 matricule: matricule
             },
-            success: function(data){
-                $("#tableTech").html(data);
+            success: function(){
+                window.location.reload();
             },
             error: function(){
                 alert("error")
@@ -107,16 +99,8 @@ $(document).ready(()=>{
                 anciennete: anciennete,
                 telephone: telephone
             },
-            success: function(data){
-                $("#tableTech").html(data);
-                $("#hdnID").val("");
-                $("#nbrMatricule").val("");
-                $("#txtPrenom").val("");
-                $("#txtNom").val("");
-                $("#dteEmbauche").val("");
-                $("#nbrAnciennete").val("");
-                $("#txtTel").val("");
-                $('#mdlAjoutTech').modal('hide');
+            success: function(){
+                window.location.reload();
             },
             error: function(){
                 alert("error")
@@ -125,6 +109,15 @@ $(document).ready(()=>{
     });
 
     $("#btnAnnuler").click(function(){
+        resetForm();
+        $('#mdlAjoutTech').modal('hide');
+    });
+
+    $('#mdlAjoutTech').on('hidden.bs.modal', function (e) {
+        resetForm();
+    });
+
+    function resetForm(){
         $("#hdnID").val("");
         $("#nbrMatricule").val("");
         $("#txtPrenom").val("");
@@ -135,13 +128,6 @@ $(document).ready(()=>{
         $('#btnSoumettre').show();
         $('#btnValider').hide();
         $('#btnAnnuler').hide();
-        $('#mdlAjoutTech').modal('hide');
-    });
-
-    $('#mdlAjoutTech').on('hidden.bs.modal', function (e) {
-        $('#btnSoumettre').show();
-        $('#btnValider').hide();
-        $('#btnAnnuler').hide();
-    });
+    }
 
 });

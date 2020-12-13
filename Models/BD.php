@@ -31,8 +31,8 @@
 
     function modifierTechnicienne($tech){
         $conn = ouvrirConnection();
-        $sql = "UPDATE techniciennes 
-        SET MATRICULE='".$tech->obtenirMatricule()."', nom='".$tech->obtenirNom()."', prenom='".$tech->obtenirPrenom()."', DATEEMBAUCHE='".$tech->obtenirDateEmbauche()."', anciennete='".$tech->obtenirAnc()."', telephone='".$tech->obtenirTel()."' WHERE ID=".$tech->obtenirID().";";
+        $sql = "UPDATE TECHNICIENNES 
+        SET MATRICULE='".$tech->obtenirMatricule()."', NOM='".$tech->obtenirNom()."', PRENOM='".$tech->obtenirPrenom()."', DATEEMBAUCHE='".$tech->obtenirDateEmbauche()."', ANCIENNETE='".$tech->obtenirAnc()."', TELEPHONE='".$tech->obtenirTel()."' WHERE ID=".$tech->obtenirID().";";
         if(!$conn->query($sql)){
             echo "UPDATE ".$conn->error;
         }
@@ -41,12 +41,12 @@
 
     function obtenirTechniciennes(){
         $conn = ouvrirConnection();
-        $sql = "select * from techniciennes where ACTIVE = 1;";
+        $sql = "select * from TECHNICIENNES where ACTIVE = 1;";
         $resultat = $conn->query($sql);
         $conn->close();
         $techs = array();
         while($range = $resultat->fetch_assoc()){
-            $tech = new Technicienne($range['MATRICULE'], $range['prenom'], $range['nom'], $range['DATEEMBAUCHE'], $range['anciennete']);
+            $tech = new Technicienne($range['MATRICULE'], $range['PRENOM'], $range['NOM'], $range['DATEEMBAUCHE'], $range['ANCIENNETE']);
             $tech->setID($range['ID']);
             array_push($techs, $tech);
         }
@@ -55,19 +55,19 @@
 
     function obtenirTechnicienne($ID){
         $conn = ouvrirConnection();
-        $sql = "select * from techniciennes where ID=".$ID." AND ACTIVE = 1;";
+        $sql = "select * from TECHNICIENNES where ID=".$ID." AND ACTIVE = 1;";
         $resultat = $conn->query($sql);
         $conn->close();
         $range = $resultat->fetch_assoc();
-        $tech = new Technicienne($range['MATRICULE'], $range['prenom'], $range['nom'], $range['DATEEMBAUCHE'], $range['anciennete']);
+        $tech = new Technicienne($range['MATRICULE'], $range['PRENOM'], $range['NOM'], $range['DATEEMBAUCHE'], $range['ANCIENNETE']);
         $tech->setID($range['ID']);
-        $tech->setTel($range['telephone']);
+        $tech->setTel($range['TELEPHONE']);
         return $tech;
     }
 
     function supprimerTechnicienne($numTech){
         $conn = ouvrirConnection();
-        $sql = "UPDATE techniciennes SET ACTIVE = 0 WHERE ID = '".$numTech."';";
+        $sql = "UPDATE TECHNICIENNES SET ACTIVE = 0 WHERE ID = '".$numTech."';";
         $conn->query($sql);
         if(!$conn->query($sql)){
             echo ("Fuck".$conn->error);
@@ -204,7 +204,7 @@
         return $resultat;
     }
 
-    function obtenirGroupeTS(){
+    /*function obtenirGroupeTS(){
         $groupe = 0;
         $conn = ouvrirConnection();
         $sql = "CALL OBTENIRGROUPETS();";
@@ -220,7 +220,7 @@
         }
         $conn->close();
         return $groupe;
-    }
+    }*/
 
     function insererTS($liste){
         $conn = ouvrirConnection();
@@ -235,11 +235,11 @@
     }
 
     //Inserer la date du TS dans la table DATETS
-    function insererDateTS($date, $groupe){
+    function insererDateTS($date){
         $conn = ouvrirConnection();
-        $sql = "CALL INSERERDATETS(?,?);";
+        $sql = "CALL INSERERDATETS(?);";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("si", $date, $groupe);
+        $stmt->bind_param("s", $date);
         $stmt->execute();
         $conn->close();
     }

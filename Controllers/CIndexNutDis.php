@@ -9,8 +9,7 @@
 
     function cAjouter(){
         $listePrincipale = separerListe($_POST['liste']);
-        $groupe = obtenirGroupeTS();
-        insererDateTS($_POST['date'], $groupe);
+        insererDateTS($_POST['date']);
         foreach($listePrincipale as $listeSecondaire ){
             if(count($listeSecondaire) != 0){
                 $liste = gestionPriorite($listeSecondaire);

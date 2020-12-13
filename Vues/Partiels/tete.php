@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <title>Technicienne</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -36,7 +36,7 @@
                     <a class="nav-link" href="technicienne.php">Gestion Techniciennes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Recherche</a>
+                    <a class="nav-link" href="recherche.php">Recherche</a>
                 </li>
                 </ul>
                 <span class="navbar-text text-white mr-3">
