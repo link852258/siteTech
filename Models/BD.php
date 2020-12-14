@@ -204,24 +204,6 @@
         return $resultat;
     }
 
-    /*function obtenirGroupeTS(){
-        $groupe = 0;
-        $conn = ouvrirConnection();
-        $sql = "CALL OBTENIRGROUPETS();";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-        $resultat = $stmt->get_result();
-        $res = $resultat->fetch_assoc();
-        if($res['GROUPE'] === NULL)
-            $groupe = 1;
-        else{
-            $groupe = $res['GROUPE'];
-            $groupe++;
-        }
-        $conn->close();
-        return $groupe;
-    }*/
-
     function insererTS($liste){
         $conn = ouvrirConnection();
 

@@ -12,7 +12,7 @@
             <input type="hidden" id="hdnIDDep" name="hdnIDDep" value="1">
             <div class="form-group">
                 <label for="dteDate">Dates</label>
-                <input type="date" id="dteDate" name="dteDate">
+                <input type="date" id="dteDate" name="dteDate" required>
             </div>
             <?php for($i = 1; $i <= 3; $i++){ ?>
             <div class="form-group">
