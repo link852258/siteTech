@@ -171,33 +171,33 @@
         $conn->close();
     }
 
-    function obtenirTS($IDPri, $IDPDep){
+    function obtenirTS($IDPri, $IDDep){
         $conn = ouvrirConnection();
-        $sql = "CALL OBTENIRTS(?,?);";
+        $sql = "CALL OBTENIRTS2(?,?);";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ii",$IDPri,$IDPDep);
+        $stmt->bind_param("ii",$IDPri,$IDDep);
         $stmt->execute();
         $resultat = $stmt->get_result();
         $conn->close();
         return $resultat;
     }
 
-    function obtenirDateTS($IDPri, $IDPDep){
+    function obtenirDateTS($IDDep){
         $conn = ouvrirConnection();
-        $sql = "CALL OBTENIRDATETS(?,?);";
+        $sql = "CALL OBTENIRDATETS2(?);";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ii", $IDPri, $IDPDep);
+        $stmt->bind_param("i", $IDDep);
         $stmt->execute();
         $resultat = $stmt->get_result();
         $conn->close();
         return $resultat;
     }
 
-    function obtenirDescriptionTS($ID){
+    function obtenirDescriptionTS($IDTech, $IDPriorite, $IDDep){
         $conn = ouvrirConnection();
-        $sql = "CALL OBTENIRDESCRIPTION(?);";
+        $sql = "CALL OBTENIRDESCRIPTION2(?,?,?);";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $ID);
+        $stmt->bind_param("iii",$IDTech, $IDPriorite, $IDDep);
         $stmt->execute();
         $resultat = $stmt->get_result();
         $conn->close();
