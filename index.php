@@ -14,8 +14,4 @@
     else{
         afficher();
     }
-
-    function connecter(){
-
-    }
 ?>

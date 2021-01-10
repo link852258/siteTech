@@ -14,6 +14,10 @@
                 <label for="dteDate">Dates</label>
                 <input type="date" id="dteDate" name="dteDate" required>
             </div>
+            <div class="form-group">
+                <label for="txtPoste">Poste</label>
+                <input type="text" id="txtPoste" name="txtPoste" required>
+            </div>
             <?php for($i = 1; $i <= 3; $i++){ ?>
             <div class="form-group">
                 <label for="dteDate"><?php echo "Priorité ".$i?></label>

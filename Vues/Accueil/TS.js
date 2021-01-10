@@ -43,13 +43,15 @@ $(document).ready(()=>{
         e.preventDefault();
         var liste = obtenirListe();
         var date = $('#dteDate').val();
+        var poste = $('#txtPoste').val();
 
         $.ajax({
             type: 'POST',
             data: { 
                 methode: "Ajout",
                 liste: liste,
-                date: date
+                date: date,
+                poste: poste
 
             },
             success: function(){

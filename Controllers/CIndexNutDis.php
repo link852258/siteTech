@@ -10,11 +10,12 @@
     function cAjouter(){
         $listePrincipale = separerListe($_POST['liste']);
         insererDateTS($_POST['date']);
+        insererTS($_POST['poste']);
         foreach($listePrincipale as $listeSecondaire ){
             if(count($listeSecondaire) != 0){
                 $liste = gestionPriorite($listeSecondaire);
                 cModifierTechOrdre($liste);
-                insererTS($liste);
+                insererTSDPT($liste);
             }
         }
     }

@@ -204,10 +204,18 @@
         return $resultat;
     }
 
-    function insererTS($liste){
+    function insererTS($poste){
         $conn = ouvrirConnection();
+        $sql = "CALL INSERERTS(?);";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $poste);
+        $stmt->execute();
+        $conn->close();
+    }
 
-        $sql = "CALL INSERERTS(?,?);";
+    function insererTSDPT($liste){
+        $conn = ouvrirConnection();
+        $sql = "CALL INSERER_TSDPT(?,?);";
         $stmt = $conn->prepare($sql);
         foreach($liste as $ordre ){
             $stmt->bind_param("ii", $ordre->ID, $ordre->raison);
@@ -224,6 +232,62 @@
         $stmt->bind_param("s", $date);
         $stmt->execute();
         $conn->close();
+    }
+
+    //Rechercher un groupe de TS selon une date
+    function pagination($dateDeDebut, $dateDeFin, $IDDepartement){
+        $conn = ouvrirConnection();
+        $sql = "SELECT CREERPAGINATION(?,?,?) AS NBPAGE;";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ssi", $dateDeDebut, $dateDeFin, $IDDepartement);
+        $stmt->execute();
+        $resulat = $stmt->get_result();
+        $res = $resulat->fetch_assoc();
+        $conn->close();
+        return $res['NBPAGE'];
+    }
+
+    function obtenirTechniciennesSelonDate($IDDepartement, $IDPriorite, $dateDeDebut, $dateDeFin, $offset){
+        $conn = ouvrirConnection();
+        $sql = "CALL OBTENIR_TECHNICIENNES_TS_SELON_DATE(?,?,?,?,?);";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("iissi", $IDDepartement, $IDPriorite, $dateDeDebut, $dateDeFin, $offset);
+        $stmt->execute();
+        $resulat = $stmt->get_result();
+        $conn->close();
+        return $resulat;
+    }
+
+    function obtenirDateTSSelonDate($IDDepartement, $dateDeDebut, $dateDeFin, $offset){
+        $conn = ouvrirConnection();
+        $sql = "CALL DATE_TS_PAR_DATE(?,?,?,?);";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("issi", $IDDepartement, $dateDeDebut, $dateDeFin, $offset);
+        $stmt->execute();
+        $resulat = $stmt->get_result();
+        $conn->close();
+        return $resulat;
+    }
+
+    function obtenirDescriptionTSSelonDate($IDTech, $IDPriorite, $IDDepartement, $dateDeDebut, $dateDeFin, $offset){
+        $conn = ouvrirConnection();
+        $sql = "CALL DESCRIPTION_TS_PAR_DATE(?,?,?,?,?,?);";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("iiissi", $IDTech, $IDPriorite, $IDDepartement, $dateDeDebut, $dateDeFin, $offset);
+        $stmt->execute();
+        $resulat = $stmt->get_result();
+        $conn->close();
+        return $resulat;
+    }
+
+    function obtenirDepartement(){
+        $conn = ouvrirConnection();
+        $sql = "CALL OBTENIR_DEPARTEMENT();";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $resulat = $stmt->get_result();
+        $conn->close();
+        return $resulat;
     }
 
 ?>
