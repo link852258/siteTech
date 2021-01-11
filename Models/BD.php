@@ -204,19 +204,19 @@
 
     function insererTS($poste){
         $conn = ouvrirConnection();
-        $sql = "CALL INSERERTS(?);";
+        $sql = "CALL INSERERTS(?,?);";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $poste);
+        $stmt->bind_param("si", $poste, $_SESSION['ID']);
         $stmt->execute();
         $conn->close();
     }
 
     function insererTSDPT($liste){
         $conn = ouvrirConnection();
-        $sql = "CALL INSERER_TSDPT(?,?,?);";
+        $sql = "CALL INSERER_TSDPT(?,?);";
         $stmt = $conn->prepare($sql);
         foreach($liste as $ordre ){
-            $stmt->bind_param("iii", $ordre->ID, $ordre->raison, $_SESSION['ID']);
+            $stmt->bind_param("ii", $ordre->ID, $ordre->raison);
             $stmt->execute();
         }
         $conn->close();
@@ -299,4 +299,13 @@
         return $resulat;
     }
 
+    function obtenirLogs(){
+        $conn = ouvrirConnection();
+        $sql = "CALL OBTENIRLOGS();";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $resulat = $stmt->get_result();
+        $conn->close();
+        return $resulat;
+    }
 ?>

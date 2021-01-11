@@ -37,6 +37,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="recherche.php">Recherche</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logs.php">Logs</a>
+                </li>
                 </ul>
                 <span class="navbar-text text-white mr-3">
                     <?php echo 'Bonjour '.$_SESSION['prenom'];?>
