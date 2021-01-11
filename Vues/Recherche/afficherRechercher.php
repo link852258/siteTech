@@ -3,15 +3,15 @@
         <form id="frmRechercher" class="form-inline">
             <div class="form-group mr-3">
                 <label for="dteDebut" class="mr-1">Date de Début</label>
-                <input type="date" id="dteDebut" class="form-control" name="dteDebut">
+                <input type="date" id="dteDebut" class="form-control" name="dteDebut" required>
             </div>
             <div class="form-group mr-3">
                 <label for="dteFin" class="mr-1">Date de Fin</label>
-                <input type="date" id="dteFin" class="form-control" name="dteFin">
+                <input type="date" id="dteFin" class="form-control" name="dteFin" required>
             </div>
             <div class="form-group mr-3">
                 <label for="slcDepartement" class="mr-1">Departement</label>
-                <select id="slcDepartement" class="form-control" name="slcDepartement">
+                <select id="slcDepartement" class="form-control custom-select" name="slcDepartement" required>
                     <?php $departements = obtenirDepartement(); ?>
                     <?php while($departement = $departements->fetch_assoc()){ ?>
                         <option value="<?php echo $departement['IDDEP']; ?>"> <?php echo $departement['NOMDEP']; ?></option>

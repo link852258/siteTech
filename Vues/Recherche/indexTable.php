@@ -13,7 +13,7 @@
             <td><?php echo $range['NOMCOMPLET']; ?></td>
             <?php $descriptions = obtenirDescriptionTSSelonDate($range['IDTECH'], $range['IDPRIORITE'], $range['IDDEP'], $_SESSION['dateDebut'], $_SESSION['dateFin'], $_SESSION['offset']); ?>
             <?php while($description = $descriptions->fetch_assoc()){ ?>
-                <td><?php if(is_null($description['DESCRIPTION'])) echo 'N/A'; else echo $description['DESCRIPTION']; ?></td>
+                <td><?php if(is_null($description['DESCRIPTION'])) echo 'N/A'; else echo $description['DESCRIPTION']." ".$description['ORDRE']; ?></td>
             <?php }?>
         </tr>
     <?php }?>

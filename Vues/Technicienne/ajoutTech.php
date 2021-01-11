@@ -34,12 +34,12 @@
                 <label for="txtTel">Téléphone</label>
                 <input type="text" id="txtTel" class="form-control" name="txtTel" pattern="^\([0-9]{3}\)[0-9]{3}-[0-9]{4}$" placeholder="(XXX)XXX-XXXX">
             </div>
-            <button type="submit" class="btn btn-primary" id="btnSoumettre" name="btnSoumettre">Soumettre</button>
+            <button type="submit" class="btn btn-primary" id="btnSoumettreTech" name="btnSoumettreTech">Soumettre</button>
         </form>
       </div>
       <div class="modal-footer">
-            <button class="btn btn-primary" id="btnValider" name="btnValider" >Modifier</button>
-            <button class="btn btn-danger" id="btnAnnuler" name="btnAnnuler" >Annuler</button>
+            <button class="btn btn-primary" id="btnValiderTech" name="btnValiderTech" >Modifier</button>
+            <button class="btn btn-danger" id="btnAnnulerTech" name="btnAnnulerTech" >Annuler</button>
       </div>
     </div>
   </div>

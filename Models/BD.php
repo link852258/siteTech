@@ -10,7 +10,7 @@
     
     function connexionTechnicienne($nomUtilisateur, $MDP){
         $conn = ouvrirConnection();
-        $sql= "Call CONNEXIONTECHNICIENNE(?,?);";
+        $sql= "CALL CONNEXIONTECHNICIENNE(?,?);";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("is",$nomUtilisateur,$MDP);
         $stmt->execute();
@@ -22,20 +22,19 @@
     
     function insererTechnicienne($tech){
         $conn = ouvrirConnection();
-        $sql= "CALL INSERERTECH(?,?,?,?,?,?);";
+        $sql= "CALL INSERERTECH(?,?,?,?,?,?,?);";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssssis",$tech->obtenirMatricule(),$tech->obtenirNom(),$tech->obtenirPrenom(), $tech->obtenirDateEmbauche(), $tech->obtenirAnc(), $tech->obtenirTel());
+        $stmt->bind_param("ssssisi",$tech->obtenirMatricule(),$tech->obtenirNom(),$tech->obtenirPrenom(), $tech->obtenirDateEmbauche(), $tech->obtenirAnc(), $tech->obtenirTel(), $_SESSION['ID']);
         $stmt->execute();
         $conn->close();
     }
 
     function modifierTechnicienne($tech){
         $conn = ouvrirConnection();
-        $sql = "UPDATE TECHNICIENNES 
-        SET MATRICULE='".$tech->obtenirMatricule()."', NOM='".$tech->obtenirNom()."', PRENOM='".$tech->obtenirPrenom()."', DATEEMBAUCHE='".$tech->obtenirDateEmbauche()."', ANCIENNETE='".$tech->obtenirAnc()."', TELEPHONE='".$tech->obtenirTel()."' WHERE ID=".$tech->obtenirID().";";
-        if(!$conn->query($sql)){
-            echo "UPDATE ".$conn->error;
-        }
+        $sql = "CALL MODIFIER_UNE_TECHNICIENNE(?,?,?,?,?,?,?,?);";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("issssisi", $tech->obtenirID(), $tech->obtenirMatricule(), $tech->obtenirNom(), $tech->obtenirPrenom(), $tech->obtenirDateEmbauche(), $tech->obtenirAnc(), $tech->obtenirTel(), $_SESSION['ID']);
+        $stmt->execute();
         $conn->close();
     }
 
@@ -67,11 +66,10 @@
 
     function supprimerTechnicienne($numTech){
         $conn = ouvrirConnection();
-        $sql = "UPDATE TECHNICIENNES SET ACTIVE = 0 WHERE ID = '".$numTech."';";
-        $conn->query($sql);
-        if(!$conn->query($sql)){
-            echo ("Fuck".$conn->error);
-        }
+        $sql = "CALL SUPPRIMER_UNE_TECHNICIENNE(?,?);";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ii", $numTech, $_SESSION['ID']);
+        $conn->execute();
         $conn->close();
     }
 
@@ -98,18 +96,18 @@
 
     function insererTechDep($IDTech, $IDPriorite, $IDDEP, $ordre){
         $conn = ouvrirConnection();
-        $sql= "CALL INSERERTECHDEP(?,?,?,?);";
+        $sql= "CALL INSERERTECHDEP(?,?,?,?,?);";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("iiii",$IDTech, $IDPriorite, $IDDEP, $ordre);
+        $stmt->bind_param("iiiii", $IDTech, $IDPriorite, $IDDEP, $ordre, $_SESSION['ID']);
         $stmt->execute();
         $conn->close();
     }
 
     function supprimerTechnicienneDep($ID){
         $conn = ouvrirConnection();
-        $sql= "CALL DELETETECHDEP(?);";
+        $sql= "CALL DELETETECHDEP(?,?);";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i",$ID);
+        $stmt->bind_param("ii", $ID, $_SESSION['ID']);
         $stmt->execute();
         $conn->close();
     }
@@ -130,9 +128,9 @@
 
     function modifierTechnicienneDep($TechDepPri){
         $conn = ouvrirConnection();
-        $sql = "CALL UPDATETECHDEPPRI(?,?,?,?,?);";
+        $sql = "CALL UPDATETECHDEPPRI(?,?,?,?,?,?);";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("iiiii",$TechDepPri->ID,$TechDepPri->IDTech,$TechDepPri->IDPri,$TechDepPri->IDDep,$TechDepPri->ordre);
+        $stmt->bind_param("iiiiii",$TechDepPri->ID,$TechDepPri->IDTech,$TechDepPri->IDPri,$TechDepPri->IDDep,$TechDepPri->ordre, $_SESSION['ID']);
         $stmt->execute();
         $resultat = $stmt->get_result();
         $conn->close();
@@ -208,17 +206,17 @@
         $conn = ouvrirConnection();
         $sql = "CALL INSERERTS(?);";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $poste);
+        $stmt->bind_param("s", $poste);
         $stmt->execute();
         $conn->close();
     }
 
     function insererTSDPT($liste){
         $conn = ouvrirConnection();
-        $sql = "CALL INSERER_TSDPT(?,?);";
+        $sql = "CALL INSERER_TSDPT(?,?,?);";
         $stmt = $conn->prepare($sql);
         foreach($liste as $ordre ){
-            $stmt->bind_param("ii", $ordre->ID, $ordre->raison);
+            $stmt->bind_param("iii", $ordre->ID, $ordre->raison, $_SESSION['ID']);
             $stmt->execute();
         }
         $conn->close();
@@ -284,6 +282,17 @@
         $conn = ouvrirConnection();
         $sql = "CALL OBTENIR_DEPARTEMENT();";
         $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $resulat = $stmt->get_result();
+        $conn->close();
+        return $resulat;
+    }
+
+    function obtenirPosteSelonDepartement($IDDepartement){
+        $conn = ouvrirConnection();
+        $sql = "CALL OBTENIR_POSTES_SELON_DEPARTEMENT(?);";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $IDDepartement);
         $stmt->execute();
         $resulat = $stmt->get_result();
         $conn->close();

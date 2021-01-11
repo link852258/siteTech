@@ -1,7 +1,7 @@
 $(document).ready(()=>{
-    $('#btnSoumettre').show();
-    $('#btnValider').hide();
-    $('#btnAnnuler').hide();
+    $('#btnSoumettreDepartement').show();
+    $('#btnValiderDepartement').hide();
+    $('#btnAnnulerDepartement').hide();
 
     $("#frmAjouterTechnicienneDep").submit(function(e){
         e.preventDefault();
@@ -65,12 +65,12 @@ $(document).ready(()=>{
                 alert(err+"allo");
             }
         });
-        $('#btnSoumettre').hide();
-        $('#btnValider').show();
-        $('#btnAnnuler').show();
+        $('#btnSoumettreDepartement').hide();
+        $('#btnValiderDepartement').show();
+        $('#btnAnnulerDepartement').show();
     });
 
-    $("#btnValider").click(function(){
+    $("#btnValiderDepartement").click(function(){
         var ID = $("#hdnIDPrincipal").val();
         var hdnID = $('#hdnIDDep').val();
         var IDTech = $("#slcTechnicienne").val();
@@ -100,21 +100,21 @@ $(document).ready(()=>{
         });
     });
 
-    $("#btnAnnuler").click(function(){
+    $("#btnAnnulerDepartement").click(function(){
         $("#hdnIDPrincipal").val("");
         $("#slcTechnicienne").val(1);
         $("#slcPriorite").val(1);
         $("#nbrOrdre").val(1);
-        $('#btnSoumettre').show();
-        $('#btnValider').hide();
-        $('#btnAnnuler').hide();
+        $('#btnSoumettreDepartement').show();
+        $('#btnValiderDepartement').hide();
+        $('#btnAnnulerDepartement').hide();
         $('#mdlAjoutTechDep').modal('hide');
     });
 
     $('#mdlAjoutTechDep').on('hidden.bs.modal', function (e) {
-        $('#btnSoumettre').show();
-        $('#btnValider').hide();
-        $('#btnAnnuler').hide();
+        $('#btnSoumettreDepartement').show();
+        $('#btnValiderDepartement').hide();
+        $('#btnAnnulerDepartement').hide();
     });
 
 });

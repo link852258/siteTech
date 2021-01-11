@@ -1,7 +1,7 @@
 $(document).ready(()=>{
-    $('#btnSoumettre').show();
-    $('#btnValider').hide();
-    $('#btnAnnuler').hide();
+    $('#btnSoumettreTS').show();
+    $('#btnValiderTS').hide();
+    $('#btnAnnulerTS').hide();
 
     $('.slcPriorite').change(function(){
         var auDessousDeOui = false;
@@ -43,7 +43,7 @@ $(document).ready(()=>{
         e.preventDefault();
         var liste = obtenirListe();
         var date = $('#dteDate').val();
-        var poste = $('#txtPoste').val();
+        var poste = $('#slcPoste').val();
 
         $.ajax({
             type: 'POST',
@@ -59,8 +59,8 @@ $(document).ready(()=>{
                 $('#mdlAjoutTS').modal('hide');
                 window.location.reload();
             },
-            error: function(){
-                alert("error")
+            error: function(err){
+                alert(err)
             }
         });
     });
@@ -101,12 +101,12 @@ $(document).ready(()=>{
                 alert(err+"allo");
             }
         });
-        $('#btnSoumettre').hide();
-        $('#btnValider').show();
-        $('#btnAnnuler').show();
+        $('#btnSoumettreTS').hide();
+        $('#btnValiderTS').show();
+        $('#btnAnnulerTS').show();
     });
 
-    $("#btnValider").click(function(){
+    $("#btnValiderTS").click(function(){
         var ID = $("#hdnIDPrincipal").val();
         var hdnID = $('#hdnIDDep').val();
         var IDTech = $("#slcTechnicienne").val();
@@ -136,21 +136,21 @@ $(document).ready(()=>{
         });
     });
 
-    $("#btnAnnuler").click(function(){
+    $("#btnAnnulerTS").click(function(){
         $("#hdnIDPrincipal").val("");
         $("#slcTechnicienne").val(1);
         $("#nbrOrdre").val(1);
-        $('#btnSoumettre').show();
-        $('#btnValider').hide();
-        $('#btnAnnuler').hide();
+        $('#btnSoumettreTS').show();
+        $('#btnValiderTS').hide();
+        $('#btnAnnulerTS').hide();
         $('#mdlAjoutTS').modal('hide');
     });
 
     $('#mdlAjoutTS').on('hidden.bs.modal', function (e) {
         $(".slcPriorite").val(1);
-        $('#btnSoumettre').show();
-        $('#btnValider').hide();
-        $('#btnAnnuler').hide();
+        $('#btnSoumettreTS').show();
+        $('#btnValiderTS').hide();
+        $('#btnAnnulerTS').hide();
     });
 
 });
