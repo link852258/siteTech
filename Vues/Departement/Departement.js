@@ -5,7 +5,7 @@ $(document).ready(()=>{
 
     $("#frmAjouterTechnicienneDep").submit(function(e){
         e.preventDefault();
-        //$("#slcTechnicienne").prop('disabled',false);
+        $("#slcTechnicienne").prop('disabled',false);
         var hdnID = $('#hdnIDDep').val();
         var IDTech = $("#slcTechnicienne").val();
         var IDPriorite = $("#slcPriorite").val();
@@ -48,7 +48,7 @@ $(document).ready(()=>{
 
     $("#mainCol").on('click', ".btn-primary", function(){
         var ID = $(this).val();
-        //$("#slcTechnicienne").prop('disabled',true);
+        $("#slcTechnicienne").prop('disabled',true);
         $.ajax({
             type: 'POST',
             data: { 
@@ -103,7 +103,7 @@ $(document).ready(()=>{
     });
 
     $("#btnAnnulerDepartement").click(function(){
-        //$("#slcTechnicienne").prop('disabled',false);
+        $("#slcTechnicienne").prop('disabled',false);
         $("#hdnIDPrincipal").val("");
         $("#slcTechnicienne").val(1);
         $("#slcPriorite").val(1);
@@ -115,7 +115,7 @@ $(document).ready(()=>{
     });
 
     $('#mdlAjoutTechDep').on('hidden.bs.modal', function (e) {
-        //$("#slcTechnicienne").prop('disabled',false);
+        $("#slcTechnicienne").prop('disabled',false);
         $('#btnSoumettreDepartement').show();
         $('#btnValiderDepartement').hide();
         $('#btnAnnulerDepartement').hide();

@@ -69,7 +69,7 @@
         $sql = "CALL SUPPRIMER_UNE_TECHNICIENNE(?,?);";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ii", $numTech, $_SESSION['ID']);
-        $conn->execute();
+        $stmt->execute();
         $conn->close();
     }
 

@@ -20,16 +20,19 @@
                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Temps Supplémentaire</a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="nutrition.php">Nutrition</a>
-                        <a class="dropdown-item" href="distribution.php">Distribution</a>
+                        <a class="dropdown-item" href="nutrition.php">TS Nutrition</a>
+                        <a class="dropdown-item" href="distribution.php">TS Distribution</a>
                     </div>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="gestionNutrition.php">Gestion Nutrition</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="gestionDistribution.php">Gestion Distribution</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" 
+                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion Départements</a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="gestionNutrition.php">Gestion Nutrition</a>
+                    <a class="dropdown-item" href="gestionDistribution.php">Gestion Distribution</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="technicienne.php">Gestion Techniciennes</a>
