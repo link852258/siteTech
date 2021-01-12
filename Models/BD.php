@@ -130,7 +130,7 @@
         $conn = ouvrirConnection();
         $sql = "CALL UPDATETECHDEPPRI(?,?,?,?,?,?);";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("iiiiii",$TechDepPri->ID,$TechDepPri->IDTech,$TechDepPri->IDPri,$TechDepPri->IDDep,$TechDepPri->ordre, $_SESSION['ID']);
+        $stmt->bind_param("iiiiii",$TechDepPri->ID, $TechDepPri->IDTech, $TechDepPri->IDPri, $TechDepPri->IDDep, $TechDepPri->ordre, $_SESSION['ID']);
         $stmt->execute();
         $resultat = $stmt->get_result();
         $conn->close();

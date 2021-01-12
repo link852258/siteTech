@@ -37,9 +37,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="recherche.php">Recherche</a>
                 </li>
+                
+                <?php if($_SESSION['admin'] == 1 ){?>
                 <li class="nav-item">
                     <a class="nav-link" href="logs.php">Logs</a>
                 </li>
+                <?php } ?>
+                
                 </ul>
                 <span class="navbar-text text-white mr-3">
                     <?php echo 'Bonjour '.$_SESSION['prenom'];?>

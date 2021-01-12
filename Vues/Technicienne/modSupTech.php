@@ -8,7 +8,9 @@
             <th scope="col">Date d'embauche</th>
             <th scope="col">Ancienneté</th>
             <th scope="col">Modifier</th>
+            <?php if($_SESSION['admin'] == 1) {?>
             <th scope="col">Supprimer</th>
+            <?php } ?>
         </tr>
     </thead>
     <tbody>
@@ -20,7 +22,9 @@
             <td> <?php echo $tech->obtenirDateEmbauche(); ?> </td>
             <td> <?php echo $tech->obtenirAnc(); ?> </td>
             <td> <button class="btn btn-primary" value="<?php echo $tech->obtenirID(); ?>" data-toggle="modal" data-target="#mdlAjoutTech">Modifier</button> </td>
+            <?php if($_SESSION['admin'] == 1) {?>
             <td> <button class="btn btn-danger" value="<?php echo $tech->obtenirID(); ?>">Supprimer</button> </td>
+            <?php } ?>
         </tr>
     <?php } ?>
     </tbody>

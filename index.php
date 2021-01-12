@@ -9,6 +9,7 @@
         if(!is_null($resulat)){
             $_SESSION['ID'] = $resulat['ID'];
             $_SESSION['prenom'] = $resulat['PRENOM'];
+            $_SESSION['admin'] = $resulat['ADMIN'];
         }
     }
     else{
