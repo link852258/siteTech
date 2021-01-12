@@ -19,7 +19,11 @@ function pagination(e){
             IDDepartement: IDDepartement
         },
         success: function(succ){
-            window.location.reload();
+            if(succ == 0)
+                window.location = "recherche.php";
+            else
+                window.location = "recherche.php?page=1";
+
         },
         error: function(err){
             alert(err)

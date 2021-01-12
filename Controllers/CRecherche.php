@@ -11,7 +11,8 @@
     function afficherPagination($dateDeDebut, $dateDeFin, $IDDepartement){
         $nbPage = creerPagination($dateDeDebut, $dateDeFin, $IDDepartement);
         $_SESSION['nbPage'] = $nbPage;
-        require_once('./Vues/Recherche/pagination.php');
+        if($nbPage != 0)
+            echo $nbPage;
     }
     
     function creerPagination($dateDeDebut, $dateDeFin, $IDDepartement){

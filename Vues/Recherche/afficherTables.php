@@ -6,8 +6,8 @@
         <?php if(isset($_SESSION['offset'])){ ?>
         <?php $res = obtenirTechniciennesSelonDate($_SESSION['IDDepartement'], $i, $_SESSION['dateDebut'],$_SESSION['dateFin'], $_SESSION['offset']); ?>
         <?php $dates = obtenirDateTSSelonDate($_SESSION['IDDepartement'], $_SESSION['dateDebut'],$_SESSION['dateFin'], $_SESSION['offset']); ?>
-        <?php require('indexTable.php'); ?>
         <?php } ?>
+        <?php require('indexTable.php'); ?>
     </div>
 </div>
 <?php }?>

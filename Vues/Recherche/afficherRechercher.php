@@ -30,7 +30,7 @@
 </div>
 <div class="row">
     <div class="col" id="PaginationTable">
-    <?php if(isset($_SESSION['nbPage'])){ ?>
+    <?php if(isset($_SESSION['nbPage']) && $_SESSION['nbPage'] != 0){ ?>
         <?php $nbPage = $_SESSION['nbPage']; ?>
         <?php require_once('pagination.php'); ?>
     <?php } ?>
