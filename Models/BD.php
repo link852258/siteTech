@@ -1,8 +1,8 @@
 <?php
     function ouvrirConnection(){ 
         $serveur = "localhost";
-        $nomUtilisateur = "root";
-        $MDP = "Ganon753!";
+        $nomUtilisateur = "TECHNICIENNE";
+        $MDP = "Technicienne123!";
         $nomDB = "Technicienne";
         $conn = new mysqli($serveur, $nomUtilisateur, $MDP, $nomDB);
         return $conn;
