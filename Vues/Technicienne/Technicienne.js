@@ -1,7 +1,7 @@
 $(document).ready(()=>{
-    $('#btnSoumettre').show();
-    $('#btnValider').hide();
-    $('#btnAnnuler').hide();
+    $('#btnSoumettreTech').show();
+    $('#btnValiderTech').hide();
+    $('#btnAnnulerTech').hide();
 
     $("#frmAjouterTechnicienne").submit(function(e){
         e.preventDefault();
@@ -73,12 +73,12 @@ $(document).ready(()=>{
                 alert("error")
             }
         });
-        $('#btnSoumettre').hide();
-        $('#btnValider').show();
-        $('#btnAnnuler').show();
+        $('#btnSoumettreTech').hide();
+        $('#btnValiderTech').show();
+        $('#btnAnnulerTech').show();
     });
 
-    $("#btnValider").click(function(){
+    $("#btnValiderTech").click(function(){
         var ID = $("#hdnID").val();
         var matricule = $("#nbrMatricule").val();
         var prenom = $("#txtPrenom").val();
@@ -108,7 +108,7 @@ $(document).ready(()=>{
         });
     });
 
-    $("#btnAnnuler").click(function(){
+    $("#btnAnnulerTech").click(function(){
         resetForm();
         $('#mdlAjoutTech').modal('hide');
     });
@@ -125,9 +125,9 @@ $(document).ready(()=>{
         $("#dteEmbauche").val("");
         $("#nbrAnciennete").val("");
         $("#txtTel").val("");
-        $('#btnSoumettre').show();
-        $('#btnValider').hide();
-        $('#btnAnnuler').hide();
+        $('#btnSoumettreTech').show();
+        $('#btnValiderTech').hide();
+        $('#btnAnnulerTech').hide();
     }
 
 });

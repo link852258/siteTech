@@ -3,7 +3,6 @@
     <head>
         <title>Technicienne</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -21,16 +20,19 @@
                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Temps Supplémentaire</a>
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="nutrition.php">Nutrition</a>
-                        <a class="dropdown-item" href="distribution.php">Distribution</a>
+                        <a class="dropdown-item" href="nutrition.php">TS Nutrition</a>
+                        <a class="dropdown-item" href="distribution.php">TS Distribution</a>
                     </div>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="gestionNutrition.php">Gestion Nutrition</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="gestionDistribution.php">Gestion Distribution</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" 
+                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion Départements</a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="gestionNutrition.php">Gestion Nutrition</a>
+                    <a class="dropdown-item" href="gestionDistribution.php">Gestion Distribution</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="technicienne.php">Gestion Techniciennes</a>
@@ -38,6 +40,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="recherche.php">Recherche</a>
                 </li>
+                
+                <?php if($_SESSION['admin'] == 1 ){?>
+                <li class="nav-item">
+                    <a class="nav-link" href="logs.php">Logs</a>
+                </li>
+                <?php } ?>
+                
                 </ul>
                 <span class="navbar-text text-white mr-3">
                     <?php echo 'Bonjour '.$_SESSION['prenom'];?>

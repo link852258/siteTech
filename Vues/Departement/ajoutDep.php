@@ -31,12 +31,12 @@
                 <label for="nbrOrdre">Ordre</label>
                 <input type="number" id="nbrOrdre" class="form-control" name="nbrOrdre">
             </div>
-            <button type="submit" class="btn btn-primary" id="btnSoumettre" name="btnSoumettre">Soumettre</button>
+            <button type="submit" class="btn btn-primary" id="btnSoumettreDepartement" name="btnSoumettreDepartement">Soumettre</button>
         </form>
       </div>
       <div class="modal-footer">
-            <button class="btn btn-primary" id="btnValider" name="btnValider" >Modifier</button>
-            <button class="btn btn-danger" id="btnAnnuler" name="btnAnnuler" >Annuler</button>
+            <button class="btn btn-primary" id="btnValiderDepartement" name="btnValiderDepartement" >Modifier</button>
+            <button class="btn btn-danger" id="btnAnnulerDepartement" name="btnAnnulerDepartement" >Annuler</button>
       </div>
     </div>
   </div>

@@ -1,5 +1,6 @@
 <div class="row">
-    <div class="col" id="mainCol">   
+    <div class="col" id="mainCol">
+    <h1><?php echo $nomDep; ?></h1>
         <?php require_once('tables.php'); ?>
     </div>
 </div>

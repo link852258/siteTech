@@ -11,5 +11,6 @@
         <script type="text/javascript" src="./Vues/Accueil/TS.js"></script>
         <script type="text/javascript" src="./Vues/Connexion/index.js"></script>
         <script type="text/javascript" src="./Vues/Partiels/tete.js"></script>
+        <script type="text/javascript" src="./Vues/Recherche/recherche.js"></script>
     </body>
 </html>
