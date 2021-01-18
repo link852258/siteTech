@@ -21,8 +21,7 @@
             actualiserTableau();
         }
         elseif ($_POST['methode'] === "Supprimer"){
-            supprimerTech($_POST['matricule']);
-            actualiserTableau();
+            supprimerTS($_POST['IDTS'], $_POST['hdnID']);
         }
         elseif ($_POST['methode'] === "Deco"){
             session_destroy();

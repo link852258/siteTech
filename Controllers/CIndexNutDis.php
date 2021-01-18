@@ -1,6 +1,7 @@
 <?php require_once("./Models/BD.php"); ?>
 <?php
     function afficher($IDDep, $nomDep){
+        $dernierTS = obtenirDernierTS($IDDep);
         require_once('./Vues/Partiels/tete.php');
         require_once('./Vues/Accueil/afficherIndex.php');
         require_once('./Vues/Accueil/ajoutTS.php');
@@ -28,6 +29,9 @@
         require_once('./Vues/Accueil/afficherTables.php');
     }
 
+    function supprimerTS($IDTS, $IDDepartement){
+        supprimerLeDernierTS($IDTS, $IDDepartement);
+    }
 
 
     function separerListe($liste){

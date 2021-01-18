@@ -65,22 +65,6 @@ $(document).ready(()=>{
         });
     });
 
-    $("#mainCol").on('click', ".btn-danger", function(){
-        var ID = $(this).val();
-        $.ajax({
-            type: 'POST',
-            data: { 
-                methode: "Supprimer", 
-                ID: ID
-            },
-            success: function(data){
-            },
-            error: function(){
-                alert("error")
-            }
-        });
-    });
-
     $("#mainCol").on('click', ".btn-primary", function(){
         var ID = $(this).val();
         $.ajax({
@@ -129,6 +113,27 @@ $(document).ready(()=>{
                 $("#slcPriorite").val(1);
                 $("#nbrOrdre").val(1);
                 $('#mdlAjoutTS').modal('hide');
+            },
+            error: function(){
+                alert("error")
+            }
+        });
+    });
+
+
+
+    $("#btnSupprimerTS").click(function(){
+        var IDTS = $("#btnSupprimerTS").val();
+        var hdnIDDepartement = $('#hdnIDDep').val();
+        $.ajax({
+            type: 'POST',
+            data: { 
+                methode: "Supprimer",
+                IDTS: IDTS,
+                hdnID: hdnIDDepartement
+            },
+            success: function(data){
+                window.location.reload();
             },
             error: function(){
                 alert("error")

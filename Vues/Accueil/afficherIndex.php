@@ -8,5 +8,8 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mdlAjoutTS">
             Ajouter TS
         </button>
+        <button id="btnSupprimerTS" type="button" class="btn btn-danger" value="<?php echo $dernierTS['MAXTS'];?>" >
+            Supprimer TS
+        </button>
     </div>
 </div>

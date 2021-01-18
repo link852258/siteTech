@@ -308,4 +308,27 @@
         $conn->close();
         return $resulat;
     }
+
+    function obtenirDernierTS($IDDepartement){
+        $conn = ouvrirConnection();
+        $sql = "CALL OBTENIR_LE_DERNIER_TS(?);";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $IDDepartement);
+        $stmt->execute();
+        $resultat = $stmt->get_result();
+        $dernierTS = $resultat->fetch_assoc();
+        $conn->close();
+        return $dernierTS;
+    }
+
+
+
+    function supprimerLeDernierTS($IDTS, $IDDepartement){
+        $conn = ouvrirConnection();
+        $sql = "CALL SUPPRIMER_LE_DERNIER_TS(?,?,?);";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("iii", $IDTS, $IDDepartement, $_SESSION['ID']);
+        $stmt->execute();
+        $conn->close();
+    }
 ?>
