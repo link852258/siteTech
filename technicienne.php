@@ -17,6 +17,10 @@
             validerTech($_POST['ID'], $_POST['matricule'], $_POST['prenom'], $_POST['nom'], $_POST['dateEmbauche'], $_POST['anciennete'], $_POST['telephone']);
             actualiserTableau();
         }
+        elseif ($_POST['methode'] === "Reactiver"){
+            reactiverTech($_POST['matricule']);
+            actualiserTableau();
+        }
         elseif ($_POST['methode'] === "Supprimer"){
             supprimerTech($_POST['matricule']);
             actualiserTableau();

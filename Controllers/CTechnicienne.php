@@ -30,6 +30,10 @@
         supprimerTechnicienne($NumTech);
     }
 
+    function reactiverTech($NumTech){
+        reactiverTechnicienne($NumTech);
+    }
+
     function actualiserTableau(){
         $techs = obtenirTechniciennes();
         require_once('./Vues/Technicienne/modSupTech.php');

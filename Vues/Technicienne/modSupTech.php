@@ -9,7 +9,7 @@
             <th scope="col">Ancienneté</th>
             <th scope="col">Modifier</th>
             <?php if($_SESSION['admin'] == 1) {?>
-            <th scope="col">Supprimer</th>
+            <th scope="col">Supprimer/Réactiver</th>
             <?php } ?>
         </tr>
     </thead>
@@ -23,7 +23,11 @@
             <td> <?php echo $tech->obtenirAnc(); ?> </td>
             <td> <button class="btn btn-primary" value="<?php echo $tech->obtenirID(); ?>" data-toggle="modal" data-target="#mdlAjoutTech">Modifier</button> </td>
             <?php if($_SESSION['admin'] == 1) {?>
-            <td> <button class="btn btn-danger" value="<?php echo $tech->obtenirID(); ?>">Supprimer</button> </td>
+                <?php if($tech->obtenirActive() == false) {?>
+                    <td> <button class="btn btn-success btnReactiver" value="<?php echo $tech->obtenirID(); ?>">Réactiver</button> </td>
+                <?php }else{?>
+                    <td> <button class="btn btn-danger btnSupprimerTech" value="<?php echo $tech->obtenirID(); ?>">Supprimer</button> </td>
+                <?php }?>
             <?php } ?>
         </tr>
     <?php } ?>

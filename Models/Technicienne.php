@@ -8,6 +8,7 @@ class Technicienne {
     public $dateEmbauche;
     public $anciennete;
     public $tel;
+    public $active;
 
     function __construct($matricule, $prenom, $nom, $dateEmbauche, $anciennete){
         $this->matricule = $matricule;
@@ -15,6 +16,14 @@ class Technicienne {
         $this->nom = $nom;
         $this->dateEmbauche = $dateEmbauche;
         $this->anciennete = $anciennete;
+    }
+
+    function obtenirActive(){
+        return $this->active;
+    }
+
+    function setActive($active){
+        $this->active = $active;
     }
 
     function obtenirAnc(){

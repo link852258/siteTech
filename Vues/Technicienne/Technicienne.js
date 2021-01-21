@@ -32,13 +32,31 @@ $(document).ready(()=>{
         });
     });
 
-    $("#tableTech").on('click', ".btn-danger", function(){
+    $("#tableTech").on('click', ".btnSupprimerTech", function(){
         var matricule = $(this).val();
         $.ajax({
             url: 'technicienne.php',
             type: 'POST',
             data: { 
                 methode: "Supprimer", 
+                matricule: matricule
+            },
+            success: function(){
+                window.location.reload();
+            },
+            error: function(){
+                alert("error")
+            }
+        });
+    });
+
+    $("#tableTech").on('click', ".btnReactiver", function(){
+        var matricule = $(this).val();
+        $.ajax({
+            url: 'technicienne.php',
+            type: 'POST',
+            data: { 
+                methode: "Reactiver", 
                 matricule: matricule
             },
             success: function(){
