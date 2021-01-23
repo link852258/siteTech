@@ -13,6 +13,10 @@
             $_SESSION['dateFin'] = $_POST['dateFin'];
             afficherPagination($_POST['dateDebut'], $_POST['dateFin'], $_POST['IDDepartement']);
         }
+        elseif ($_POST['methode'] === "Imprimer"){
+            imprimer();
+            afficher();
+        }
         elseif ($_POST['methode'] === "Deco"){
             session_destroy();
         }

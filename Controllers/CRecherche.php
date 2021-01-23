@@ -1,5 +1,6 @@
 <?php require_once("./Models/Rechercher.php"); ?>
 <?php require_once("./Models/BD.php"); ?>
+<?php require_once("./Models/Impression.php"); ?>
 <?php
 
     function afficher(){
@@ -19,5 +20,11 @@
         $nbPage = pagination($dateDeDebut, $dateDeFin, $IDDepartement);
         return $nbPage;
     }
+    
+    function imprimer(){
+        genererFichier();
+    }
+
+
 
 ?>

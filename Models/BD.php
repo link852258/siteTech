@@ -9,6 +9,7 @@
     }
 
     require_once("./Models/BDTechnicienne.php");
+    require_once("./Models/BDImpression.php");
 
     function obtenirTechDepPri($IDPriorite, $IDDep){
         $conn = ouvrirConnection();

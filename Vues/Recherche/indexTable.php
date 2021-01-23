@@ -12,10 +12,10 @@
     <tbody>
 
     <?php if(isset($_SESSION['offset'])){ ?>
-        <?php while($range = $res->fetch_assoc()){ ?>
+        <?php while($technicienne = $techniciennes->fetch_assoc()){ ?>
             <tr>
-                <td><?php echo $range['NOMCOMPLET']; ?></td>
-                <?php $descriptions = obtenirDescriptionTSSelonDate($range['IDTECH'], $range['IDPRIORITE'], $range['IDDEP'], $_SESSION['dateDebut'], $_SESSION['dateFin'], $_SESSION['offset']); ?>
+                <td><?php echo $technicienne['NOMCOMPLET']; ?></td>
+                <?php $descriptions = obtenirDescriptionTSSelonDate($technicienne['IDTECH'], $technicienne['IDPRIORITE'], $technicienne['IDDEP'], $_SESSION['dateDebut'], $_SESSION['dateFin'], $_SESSION['offset']); ?>
                 <?php while($description = $descriptions->fetch_assoc()){ ?>
                     <td><?php if(is_null($description['DESCRIPTION'])) echo 'N/A'; else echo $description['DESCRIPTION']." ".$description['ORDRE']; ?></td>
                 <?php }?>

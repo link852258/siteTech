@@ -34,5 +34,6 @@
         <?php $nbPage = $_SESSION['nbPage']; ?>
         <?php require_once('pagination.php'); ?>
     <?php } ?>
+    <button class="btn btn-primary btnTelecharger">Télécharger</button>
     </div>
 </div>

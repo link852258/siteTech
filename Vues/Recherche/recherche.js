@@ -2,6 +2,22 @@ $(document).ready(()=>{
     $("#frmRechercher").submit((e)=>{
         pagination(e)
     });
+    
+    
+    $(".btnTelecharger").click(function(){
+        $.ajax({
+            url: 'recherche.php',
+            type: 'POST',
+            data: { 
+                methode: "Imprimer"
+            },
+            success: function(){
+            },
+            error: function(){
+                alert("error")
+            }
+        });
+    });
 });
 
 function pagination(e){
