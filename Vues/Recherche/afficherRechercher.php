@@ -33,7 +33,7 @@
     <?php if(isset($_SESSION['nbPage']) && $_SESSION['nbPage'] != 0){ ?>
         <?php $nbPage = $_SESSION['nbPage']; ?>
         <?php require_once('pagination.php'); ?>
+        <a class="btn btn-primary btnTelecharger" href="tableau.csv" download>Télécharger</a>
     <?php } ?>
-    <a class="btn btn-primary btnTelecharger" href="tableau.csv" download>Télécharger</a>
     </div>
 </div>
