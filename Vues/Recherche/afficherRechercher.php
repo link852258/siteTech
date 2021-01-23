@@ -34,6 +34,6 @@
         <?php $nbPage = $_SESSION['nbPage']; ?>
         <?php require_once('pagination.php'); ?>
     <?php } ?>
-    <button class="btn btn-primary btnTelecharger">Télécharger</button>
+    <a class="btn btn-primary btnTelecharger" href="tableau.csv" download>Télécharger</a>
     </div>
 </div>

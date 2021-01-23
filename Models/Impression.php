@@ -10,8 +10,6 @@ function genererFichier(){
 function remplirFichier(){
     $txt = "Nutrition";
     $nbColonnes = nbColonnes();
-
-    
     for($i = 1; $i < 4; $i++){
         $txt = $txt.str_repeat(",", $nbColonnes)."\n";
         $txt = $txt.str_repeat(",", $nbColonnes)."\n";
